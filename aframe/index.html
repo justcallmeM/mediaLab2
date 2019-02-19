@@ -26,6 +26,7 @@
     <script src="js/aframe-pointcloud-component.js"></script>
     <script src="js/aframe-pointcloud-component.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <style type="text/css">
       @font-face{
         font-family:"Ionicons";
@@ -62,31 +63,31 @@
       <a-light type="point" intensity="2" position="2 4 4"></a-light>
       <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky>
       <a-entity laser-controls line="color: red; opacity: 0.75"></a-entity>
+
       <a-pointcloud 
         id="modelSpot"
         scale="0.1 0.1 0.1" 
         position="0 0.08 -2.5" 
         rotation="-90 45 0" 
-        src="url(sculpt.ply)" 
+        src="sculpt.ply" 
         size="0.01">
       </a-pointcloud>
-      <!-- REMOVING ONE OF THE MODELS...
+
       <a-pointcloud 
         scale="0.5 0.5 0.5" 
         position="1.5 2 0.5" 
-        src="url(Sphere.ply)" 
+        src="Sphere.ply" 
         size="0.05"
-        texture="url(VGTU-logo.png)"
+        texture="VGTU-logo.png"
         depthWrite="false">
       </a-pointcloud>
-      -->
 
       <a-gui-flex-container 
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" 
       opacity="0.7" width="3.5" height="4.5"
-      position="-2 2.5 -4" rotation="0 0 0"
+      position="0 6 -4" rotation="17 0 0"
       >
-        <a-gui-button onclick="changeModel()"
+        <a-gui-button onclick="doSomething()"
           width="2.5" height="0.75"
           onclick="testButtonAction" key-code="32"
           value="test button"
@@ -98,26 +99,18 @@
       </a-gui-flex-container>
 
       <!-- Camera + cursor. -->
-      <a-entity id="cameraRig" position="0 1.6 0">
+      <a-entity id="cameraRig" position="0 2.5 0">
         <a-camera look-controls wasd-controls position="0 0 0">
           <a-gui-cursor id="cursor"
                 raycaster="objects: [gui-interactable]"
-                fuse="true" fuse-timeout="2000"
+                fuse="true" fuse-timeout="1000"
                 design="dot"
           >
-          </a-gui-cursor> <!-- /cursor -->
-        </a-camera> <!-- /camera -->
+          </a-gui-cursor>
+        </a-camera>
       </a-entity>
 
     </a-scene>
 
-    <script>
-    
-    function changeModel(){
-      var model = document.getElementById('modelSpot');
-
-    }
-    
-    </script>
   </body>
 </html>
