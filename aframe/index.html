@@ -4,58 +4,21 @@
     <meta charset="utf-8">
     <title>Lab2 - VR application</title>
     <meta name="description" content="Basic example for Point Cloud component."></meta>
-    <!--paveiksliukai veikia prie 0.6.0-->
-    <!--pakeiciant i 0.9.0 <- naujausia versija neveikia visi html/css/js elementai. -->
+
     <script src="js/aframe.min.js"></script>
     <script src="js/aframe-gui.min.js"></script>
-    <script>
-      (function() {
-        // Optimization for Repeat Views
-        if( sessionStorage.criticalFoftFontsLoaded ) {
-          console.log("fonts are already loaded");
-          return;
-        }
-        var guiWebFont = new FontFaceObserver('Fira Sans');
-        Promise.all([guiWebFont.load()]).then(function () {
-          console.log("fonts are loaded");
-          // Optimization for Repeat Views
-          sessionStorage.criticalFoftFontsLoaded = true;
-        });
-      })();
-    </script>
+    <script src="js/optimization-for-repeat-views.js"></script>
     <script src="js/aframe-pointcloud-component.js"></script>
     <script src="js/aframe-pointcloud-component.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <style type="text/css">
-      @font-face{
-        font-family:"Ionicons";
-        src:url("assets/fonts/ionicons.eot?v=2.0.1");
-        src:url("assets/fonts/ionicons.eot?v=2.0.1#iefix") format("embedded-opentype"),url("assets/fonts/ionicons.ttf?v=2.0.1") format("truetype"),url("assets/fonts/ionicons.woff?v=2.0.1") format("woff"),url("assets/fonts/ionicons.svg?v=2.0.1#Ionicons") format("svg");
-        
-        font-weight:normal;
-        font-style:normal
-      }
-      body{font-family:Ionicons;}
-      .visuallyhidden {
-        position: absolute;
-        display: block;
-        border: 0;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        width: 1px;
-        margin: -1px;
-        padding: 0;
-        overflow: hidden;
-      }
-    </style>
 
   </head>
   <body>
     <a-scene>
       <a-assets>
-        <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-        <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg">
+        <img id="groundTexture" src="models/floor.webp">
+        <img id="skyTexture" src="models/sky.webp">
       </a-assets>
 
       <a-plane src="#groundTexture" rotation="-90 0 0" height="100" width="100"></a-plane>
@@ -63,33 +26,33 @@
       <a-light type="point" intensity="2" position="2 4 4"></a-light>
       <a-sky height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"></a-sky>
       <a-entity laser-controls line="color: red; opacity: 0.75"></a-entity>
-
+      <!--MODEL 1-->
       <a-pointcloud 
         id="modelSpot"
         scale="0.1 0.1 0.1" 
         position="0 0.08 -2.5" 
         rotation="-90 45 0" 
-        src="sculpt.ply" 
+        src="models/sculpt.ply" 
         size="0.01">
       </a-pointcloud>
-
+      <!--MODEL 2-->
       <a-pointcloud 
         scale="0.5 0.5 0.5" 
         position="1.5 2 0.5" 
-        src="Sphere.ply" 
+        src="models/Sphere.ply" 
         size="0.05"
-        texture="VGTU-logo.png"
+        texture="models/VGTU-logo.png"
         depthWrite="false">
       </a-pointcloud>
-
+      <!--FIRST BUTTON-->
       <a-gui-flex-container 
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" 
-      opacity="0.7" width="3.5" height="4.5"
+      opacity="0.7" width="2.6" height="0.85"
       position="0 6 -4" rotation="17 0 0"
       >
-        <a-gui-button onclick="doSomething()"
+        <a-gui-button
           width="2.5" height="0.75"
-          onclick="testButtonAction" key-code="32"
+          onclick="doSomething()" key-code="32"
           value="test button"
           font-family="Arial"
           margin="0 0 0.05 0"
@@ -97,8 +60,54 @@
         </a-gui-button>
 
       </a-gui-flex-container>
+      <!--FIRST BUTTON END-->
+      <!--SECOND BUTTON--> 
+      <a-gui-flex-container 
+      flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" 
+      opacity="0.7" width="2.6" height="0.85"
+      position="-3 6 -4" rotation="17 0 0"
+      >
+        <a-gui-button
+          width="2.5" height="0.75"
+          onclick="doSomething()" key-code="32"
+          value="test button"
+          font-family="Arial"
+          margin="0 0 0.05 0"
+        >
+        </a-gui-button>
 
-      <!-- Camera + cursor. -->
+      </a-gui-flex-container>
+      <!--SECOND BUTTON END-->
+      <!--THIRD BUTTON-->
+      <a-gui-flex-container 
+      flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" 
+      opacity="0.7" width="2.6" height="0.85"
+      position="3 6 -4" rotation="17 0 0"
+      >
+        <a-gui-button
+          width="2.5" height="0.75"
+          onclick="doSomething()" key-code="32"
+          value="test button"
+          font-family="Arial"
+          margin="0 0 0.05 0"
+        >
+        </a-gui-button>
+
+      </a-gui-flex-container>
+      <!--THIRD BUTTON END-->
+
+      <!--SLIDER for height-->
+      <a-gui-slider 	
+        width="2.5" height="0.75"
+        onclick="slideActionFunction()"
+        percent="0.50"
+        margin="0 0 0.05 0"
+        position="-3 4 0" rotation="0 90 90"
+      >
+      </a-gui-slider>
+      <!--SLIDER END-->
+
+      <!-- Camera + cursor. --><!--This positions the player and describes some properties of the cursor - its interactions-->
       <a-entity id="cameraRig" position="0 2.5 0">
         <a-camera look-controls wasd-controls position="0 0 0">
           <a-gui-cursor id="cursor"
@@ -109,6 +118,17 @@
           </a-gui-cursor>
         </a-camera>
       </a-entity>
+
+      <script>
+          //for slider.
+          //As the percentage decreases/increases camera "y" position increases/decreases
+          //for first button
+          //something happens
+          //for second button
+          //something happens
+          //for third button
+          //something happens
+      </script>
 
     </a-scene>
 
