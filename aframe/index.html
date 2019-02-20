@@ -51,8 +51,9 @@
       position="0 6 -4" rotation="17 0 0"
       >
         <a-gui-button
+          id="buttonfirst"
           width="2.5" height="0.75"
-          onclick="doSomething()" key-code="32"
+          onclick="firstbutton()" key-code="32"
           value="test button"
           font-family="Arial"
           margin="0 0 0.05 0"
@@ -68,8 +69,9 @@
       position="-3 6 -4" rotation="17 0 0"
       >
         <a-gui-button
+          id="buttonsecond"
           width="2.5" height="0.75"
-          onclick="doSomething()" key-code="32"
+          onclick="secondbutton()" key-code="32"
           value="test button"
           font-family="Arial"
           margin="0 0 0.05 0"
@@ -85,8 +87,9 @@
       position="3 6 -4" rotation="17 0 0"
       >
         <a-gui-button
+          id="buttonthird"
           width="2.5" height="0.75"
-          onclick="doSomething()" key-code="32"
+          onclick="thirdbutton()" key-code="32"
           value="test button"
           font-family="Arial"
           margin="0 0 0.05 0"
@@ -97,7 +100,8 @@
       <!--THIRD BUTTON END-->
 
       <!--SLIDER for height-->
-      <a-gui-slider 	
+      <a-gui-slider
+        id="buttonslider" 	
         width="2.5" height="0.75"
         onclick="slideActionFunction()"
         percent="0.50"
@@ -122,12 +126,24 @@
       <script>
           //for slider.
           //As the percentage decreases/increases camera "y" position increases/decreases
+          function slideActionFunction(){
+            
+          }
           //for first button
           //something happens
+          function firstbutton(){
+
+          }
           //for second button
           //something happens
+          function secondbutton(){
+
+          }
           //for third button
           //something happens
+          function thirdbutton(){
+
+          }
       </script>
 
     </a-scene>
