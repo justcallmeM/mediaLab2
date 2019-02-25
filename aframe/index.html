@@ -53,8 +53,8 @@
         <a-gui-button
           id="buttonfirst"
           width="2.5" height="0.75"
-          onclick="firstbutton()" key-code="32"
-          value="test button"
+          onclick="secondbutton()" key-code="32"
+          value="rotate model"
           font-family="Arial"
           margin="0 0 0.05 0"
         >
@@ -71,8 +71,8 @@
         <a-gui-button
           id="buttonsecond"
           width="2.5" height="0.75"
-          onclick="secondbutton()" key-code="32"
-          value="test button"
+          onclick="firstbutton()" key-code="32"
+          value="higher position"
           font-family="Arial"
           margin="0 0 0.05 0"
         >
@@ -90,7 +90,7 @@
           id="buttonthird"
           width="2.5" height="0.75"
           onclick="thirdbutton()" key-code="32"
-          value="test button"
+          value="lower position"
           font-family="Arial"
           margin="0 0 0.05 0"
         >
@@ -98,18 +98,6 @@
 
       </a-gui-flex-container>
       <!--THIRD BUTTON END-->
-
-      <!--SLIDER for height-->
-      <a-gui-slider
-        id="buttonslider" 	
-        width="2.5" height="0.75"
-        onclick="slideActionFunction()"
-        percent="0.50"
-        margin="0 0 0.05 0"
-        position="-3 4 0" rotation="0 90 90"
-      >
-      </a-gui-slider>
-      <!--SLIDER END-->
 
       <!-- Camera + cursor. --><!--This positions the player and describes some properties of the cursor - its interactions-->
       <a-entity id="cameraRig" position="0 2.5 0">
@@ -126,23 +114,22 @@
       <script>
           //for slider.
           //As the percentage decreases/increases camera "y" position increases/decreases
-          function slideActionFunction(){
-            
-          }
+
           //for first button
           //something happens
           function firstbutton(){
-
+            var CameraHeight = document.getElementById("cameraRig").setAttribute("position", "0 5 0")
+            
           }
           //for second button
           //something happens
           function secondbutton(){
-
+            var model = document.getElementById("modelSpot").setAttribute("rotation", "-90 90 0");
           }
           //for third button
           //something happens
           function thirdbutton(){
-
+            var CameraHeight = document.getElementById("cameraRig").setAttribute("position", "0 0 0")
           }
       </script>
 
