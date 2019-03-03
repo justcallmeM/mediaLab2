@@ -13,13 +13,20 @@ There are many open source alternatives to build virtual reality application. On
   - You have to update A-frame version 0.6.0 to the newest with the point cloud plugin.
   <!--- There are two models provided in the task. Leave only one model and add matching background. If you do not like existing surroundings / models - customize as you like.-->
   - Implement at least three features in the index.html like:
+    <!--IMPLEMENTED ROTATE-->
     control panel to rotate
+    <!--IMPLEMENTED MOVE (the camera)-->
     shift/move
     zoom in/out
     button to load object
     or any other function.
     Panel examples are available at: https://rdub80.github.io/aframe-gui/examples/all_components.html
   - Test application on at least two browsers and specify in README.md which version and browser it was.
+  <!--!!!!!-->
+  SPECIFYING THE BROWSER:
+  Since A-frame 0.9.0 doesnt work on firefox, I left 0.6.0 and worked with firefox. Probably by implementing
+  the newer version - "0.9" the chrome would be able to handle the application. And so would Microsoft Edge.
+
   - Additional features are welcome and bonuses are available.
   - To pass this lab, you have to complete at least two points from the requirement list.  
   
